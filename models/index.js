@@ -13,7 +13,7 @@ const sequelize = new Sequelize(
 );
 
 const db = {
-  User: require("./user")(sequelize, Sequelize.DataTypes),
+  User: require("./User")(sequelize, Sequelize.DataTypes),
 };
 
 Object.keys(db).forEach((modelName) => {
