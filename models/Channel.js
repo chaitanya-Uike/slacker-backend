@@ -4,7 +4,10 @@ module.exports = (sequelize, DataTypes) => {
   class Channel extends Model {
     static associate(models) {
       Channel.belongsTo(models.Server);
-      Channel.belongsToMany(models.User, { through: "ChannelUser" });
+      Channel.belongsToMany(models.User, {
+        through: "ChannelUser",
+        onDelete: "CASCADE",
+      });
       Channel.hasMany(models.Message);
     }
   }

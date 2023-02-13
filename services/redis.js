@@ -8,15 +8,11 @@ class RedisService {
   }
 
   set(key, value, time) {
-    this.client.set(key, value, "EX", time);
-  }
-
-  get(key) {
-    return this.client.get(key);
+    if (key && value && time) this.client.set(key, value, "EX", time);
   }
 
   exists(key) {
-    return this.client.exists(key);
+    if (key) return this.client.exists(key);
   }
 }
 
