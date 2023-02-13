@@ -9,7 +9,6 @@ const PORT = process.env.port || 5000;
 fastify.register(require("@fastify/auth"));
 fastify.decorate("verifyJWT", require("./plugins/authorization"));
 fastify.register(require("./routes/auth"), { prefix: "/auth" });
-fastify.register(require("./routes/tasks"), { prefix: "/tasks" });
 fastify.setErrorHandler(require("./errors/customErrorHandler"));
 
 const start = async () => {

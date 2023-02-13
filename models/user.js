@@ -8,9 +8,7 @@ module.exports = (sequelize, DataTypes) => {
       return isMatch;
     }
 
-    static associate(models) {
-      User.hasMany(models.Task);
-    }
+    static associate(models) {}
   }
   User.init(
     {
