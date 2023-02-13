@@ -1,4 +1,4 @@
-# fastify-api
+# Slacker-backend
 
 ## for running the project locally
 In the project directory:
