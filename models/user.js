@@ -11,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       User.belongsToMany(models.Server, { through: "ServerUser" });
       User.belongsToMany(models.Channel, { through: "ChannelUser" });
+      User.hasMany(models.Message, {
+        foreignKey: "senderId",
+      });
     }
   }
   User.init(

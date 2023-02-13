@@ -3,7 +3,8 @@ const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Server extends Model {
     static associate(models) {
-      Server.hasMany(models.Channel);
+      // if server is deleted also delete channels associated with it
+      Server.hasMany(models.Channel, { onDelete: "CASCADE" });
       Server.belongsToMany(models.User, { through: "ServerUser" });
     }
   }
