@@ -1,21 +1,17 @@
 const { Model } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
-  class Server extends Model {
+  class Channel extends Model {
     static associate(models) {
-      Server.hasMany(models.Channel);
-      Server.belongsToMany(models.User, { through: "ServerUser" });
+      Channel.belongsTo(models.Server);
+      Channel.belongsToMany(models.User, { through: "ChannelUser" });
     }
   }
-  Server.init(
+  Channel.init(
     {
       name: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true,
-        validate: {
-          len: [2, 15],
-        },
       },
     },
     {
@@ -24,5 +20,5 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  return Server;
+  return Channel;
 };

@@ -21,7 +21,7 @@ const start = async () => {
 };
 
 db.sequelize
-  .sync({ alter: true })
+  .sync({ force: true })
   .then(() => {
     start();
   })

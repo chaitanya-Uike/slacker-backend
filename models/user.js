@@ -8,7 +8,10 @@ module.exports = (sequelize, DataTypes) => {
       return isMatch;
     }
 
-    static associate(models) {}
+    static associate(models) {
+      User.belongsToMany(models.Server, { through: "ServerUser" });
+      User.belongsToMany(models.Channel, { through: "ChannelUser" });
+    }
   }
   User.init(
     {
@@ -37,6 +40,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
+      freezeTableName: true,
     }
   );
 

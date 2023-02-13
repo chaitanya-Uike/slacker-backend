@@ -14,6 +14,9 @@ const sequelize = new Sequelize(
 
 const db = {
   User: require("./User")(sequelize, Sequelize.DataTypes),
+  Server: require("./Server")(sequelize, Sequelize.DataTypes),
+  Channel: require("./Channel")(sequelize, Sequelize.DataTypes),
+  ServerUser: require("./ServerUser")(sequelize, Sequelize.DataTypes),
 };
 
 Object.keys(db).forEach((modelName) => {
